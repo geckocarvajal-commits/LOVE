@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Love You Lovely ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:linear-gradient(135deg,#ff9ec4,#ffd6e8,#fff0f5);
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    text-align:center;
+    z-index:10;
+}
+
+h1{
+    font-size:70px;
+    color:#fff;
+    text-shadow:3px 3px 10px #ff1493;
+    animation:pulse 2s infinite;
+}
+
+p{
+    font-size:35px;
+    color:white;
+    text-shadow:2px 2px 6px #ff1493;
+    margin-top:15px;
+}
+
+.flower{
+    position:absolute;
+    font-size:35px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-100px) rotate(0deg);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.08);}
+    100%{transform:scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+    <source src="You.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+    <h1>❤️ I LOVE YOU ❤️</h1>
+    <p>🌸 Sa Nagbasa From:jake🌸</p>
+</div>
+
+<script>
+const flowers=["🌸","🌹","🌺","🌼","🌷","💖"];
+
+function createFlower(){
+    const flower=document.createElement("div");
+    flower.className="flower";
+    flower.innerHTML=flowers[Math.floor(Math.random()*flowers.length)];
+    flower.style.left=Math.random()*100+"vw";
+    flower.style.animationDuration=(Math.random()*4+4)+"s";
+    flower.style.fontSize=(Math.random()*25+20)+"px";
+    document.body.appendChild(flower);
+
+    setTimeout(()=>{
+        flower.remove();
+    },8000);
+}
+
+setInterval(createFlower,200);
+</script>
+
+</body>
+</html>
